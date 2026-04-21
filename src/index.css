@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&family=Press+Start+2P&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-quest-bg: var(--bg-color);
+  --color-quest-card: var(--card-color);
+  --color-quest-border: var(--border-color);
+  --color-quest-text: var(--text-color);
+  --color-quest-muted: var(--muted-color);
+  
+  --color-duo-green: #58cc02;
+  --color-duo-green-dark: #46a302;
+  --color-duo-blue: #1cb0f6;
+  --color-duo-blue-dark: #1899d6;
+  --color-duo-orange: #ff9600;
+  --color-duo-orange-dark: #e68700;
+  --color-duo-purple: #8b5cf6;
+  --color-duo-purple-dark: #6d28d9;
+  --color-duo-yellow: #ffc800;
+  --color-duo-yellow-dark: #e6b400;
+  
+  --font-display: "Play", cursive;
+  --font-body: "Play", cursive;
+  --font-sans: "Play", cursive;
+}
+
+:root {
+  --bg-color: #ffffff;
+  --card-color: #ffffff;
+  --border-color: #e5e5e5;
+  --text-color: #4b4b4b;
+  --muted-color: #777777;
+}
+
+
+
+@layer base {
+  body {
+    @apply bg-quest-bg text-quest-text font-body antialiased transition-colors duration-300;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-wide;
+  }
+}
+
+@layer components {
+  .duo-button {
+    @apply relative px-8 py-4 font-black uppercase tracking-wider rounded-full transition-all active:translate-y-1 active:shadow-none text-base;
+    border-bottom-width: 4px;
+  }
+
+  .duo-button-green, .duo-button-orange, .duo-button-purple, .duo-button-blue {
+    @apply bg-duo-blue text-white border-duo-blue-dark shadow-[0_4px_0_#1899d6] opacity-100;
+  }
+
+  .duo-button-glass {
+    @apply bg-white/20 text-white border-black/40 backdrop-blur-md opacity-100;
+  }
+
+  .duo-card {
+    @apply bg-quest-card border-2 border-quest-border rounded-2xl p-4 opacity-100;
+  }
+
+  .xp-bar-container {
+    @apply h-4 w-full bg-quest-border rounded-full overflow-hidden;
+  }
+
+  .xp-bar-fill {
+    @apply h-full bg-duo-blue transition-all duration-500 shadow-[0_0_10px_rgba(28,176,246,0.3)];
+  }
+  
+  .coin-glow {
+    text-shadow: 0 0 8px rgba(28, 176, 246, 0.5);
+  }
+
+  .quest-gem-blue {
+    filter: saturate(2.2) brightness(1.1);
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-quest-bg;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-quest-border rounded-full border-4 border-solid border-transparent bg-clip-padding;
+}
